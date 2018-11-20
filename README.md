@@ -25,16 +25,23 @@ General:
 Python:
 - scanpy
 - numpy
+- scipy
 - pandas
+- seaborn
 - louvain>=0.6
 - python-igraph
-- mbuttner/maren_codes/combat.py
+- ComBat python implementation from Maren Buettner's github (mbuttner/maren_codes/combat.py)
+- python-gprofiler from Valentine Svensson's github (vals/python-gprofiler)
 
 R:
 - scater
 - MAST
 - gam
 - slingshot (change DESCRIPTION file for R version 3.4.3)
+- monocle 2
+- limma
+- splines
+- ComplexHeatmap
 - RColorBrewer
 - clusterExperiment
 - ggplot2
