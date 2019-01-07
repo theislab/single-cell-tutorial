@@ -4,7 +4,7 @@ This repository contains the scripts used to generate the figures in the manuscr
 
 The main part of this repository is a case study where the best-practices established in the manuscript are applied to a mouse intestinal epithelium regions dataset from Haber et al., Nature 2018 available from the GEO under GSE92332.
 
-The scripts in the plotting_scripts/ folder reproduce the figures that are shown in the manuscript and the supplementary materials. These scripts contain comments to explain each step. Each figure that does not have a corresponding script in the plotting_scripts/ folder were taken from the case study or the marker gene study.
+The scripts in the plotting_scripts/ folder reproduce the figures that are shown in the manuscript and the supplementary materials. These scripts contain comments to explain each step. Each figure that does not have a corresponding script in the plotting_scripts/ folder was taken from the case study or the marker gene study.
 
 In case of questions or issues, please get in touch by posting an issue in this repository.
 
@@ -49,3 +49,11 @@ R:
 #### Application notes:
 
 When using Slingshot in R 3.4.3, you must pull a local copy of slingshot via the github repository and change the `DESCRIPTION` file to say `R>=3.4.3` instead of `R>=3.5.0`.
+
+### Adapting the pipeline for other datasets:
+
+The pipeline was designed to be easily adaptable to new datasets. However, there are several limitations to the general applicability of the current workflow. When adapting the pipeline for your own dataset please take into account the following:
+
+1.  sparse data formats are not supported by `rpy2` and therefore do not work with any of the integrated R commands. Datasets can be turned into a dense format using the code: `adata.X = adata.X.toarray()`
+
+2. The case study assumes that the input data is count data obtained from a single-cell protocol with UMIs. If the input data is read data, then the normalization method should be replaced with another method that includes gene length normalization (e.g., TPM, TMM).
