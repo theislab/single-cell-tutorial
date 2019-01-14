@@ -35,6 +35,7 @@ Python:
 
 R:
 - scater
+- scran
 - MAST
 - gam
 - slingshot (change DESCRIPTION file for R version 3.4.3)
