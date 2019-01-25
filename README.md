@@ -49,7 +49,11 @@ R:
 
 #### Application notes:
 
+For R 3.4.3:
 When using Slingshot in R 3.4.3, you must pull a local copy of slingshot via the github repository and change the `DESCRIPTION` file to say `R>=3.4.3` instead of `R>=3.5.0`.
+
+For R>=3.5 and bioconductor>= 3.7:
+The clusterExperiment version that comes for bioconductor 3.7 has slightly changed naming convention. `clusterExperiment()` is now called `ClusterExperiment()`. The script should be changed accordingly when using newer versions of R.
 
 ### Adapting the pipeline for other datasets:
 
