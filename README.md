@@ -26,7 +26,7 @@ Python:
 - scanpy
 - numpy
 - scipy
-- pandas
+- pandas < 0.24.0
 - seaborn
 - louvain>=0.6
 - python-igraph
@@ -54,6 +54,9 @@ When using Slingshot in R 3.4.3, you must pull a local copy of slingshot via the
 
 For R>=3.5 and bioconductor>= 3.7:
 The clusterExperiment version that comes for bioconductor 3.7 has slightly changed naming convention. `clusterExperiment()` is now called `ClusterExperiment()`. The script should be changed accordingly when using newer versions of R.
+
+For Pandas>=0.24.0:
+Pandas 0.24.0 is currently not compatible with rpy2 < 3.0.0. Once rpy2 3.0.0 is released, the tutorial should work with latest package updates. Please note that Pandas 0.24.0 requires anndata version 0.6.18 and a scanpy version > 1.37.0.
 
 ### Adapting the pipeline for other datasets:
 
