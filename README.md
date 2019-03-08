@@ -11,7 +11,21 @@ In case of questions or issues, please get in touch by posting an issue in this 
 
 ## Case study
 
-To run the single cell tutorial from start to finish, several requirements must be met.
+To run the single cell tutorial from start to finish, the data must be downloaded and several requirements must be met.
+
+### Download the data
+
+As mentioned above the data for the case study comes from GSE92332. To run the case study as shown, you must download this data and place it in the correct folder. Unpacking the data requires `tar` and `gunzip`, which should already be available on most systems. From the location where you store the case study ipynb file, this can be done via the following commands:
+
+```
+mdkir data/
+mkdir data/Haber-et-al_mouse-intestinal-epithelium/
+cd data/Haber-et-al_mouse-intestinal-epithelium/
+wget ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE92nnn/GSE92332/suppl/GSE92332_RAW.tar
+mkdir GSE92332_RAW
+tar -C GSE92332_RAW -xvf GSE92332_RAW.tar
+gunzip GSE_92332_RAW/*_Regional_*
+```
 
 ### Requirements
 
