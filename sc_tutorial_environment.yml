@@ -1,0 +1,39 @@
+name: sc-tutorial
+channels:
+ - conda-forge
+dependencies:
+ - python>=3.6
+ - r-essentials
+ - r-rgl
+ - pandas
+ - numpy
+ - scipy
+ - scikit-learn
+ - jupyter
+ - gsl
+ - tzlocal
+ - simplegeneric
+ - natsort
+ - h5py
+ - tqdm
+ - patsy
+ - llvmlite
+ - numba
+ - networkx
+ - joblib
+ - numexpr
+ - pytables
+ - seaborn
+ - statsmodels
+ - python-igraph
+ - louvain
+ - pip
+ - pip:
+   - MulticoreTSNE
+   - anndata
+   - fa2
+   - gprofiler
+   - scanpy
+   - rpy2
+   - git+https://github.com/flying-sheep/anndata2ri
+   
