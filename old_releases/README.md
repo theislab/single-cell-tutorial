@@ -1,0 +1,16 @@
+# Old releases notes
+
+Here we detail which versions of scanpy and other tools are required to run the various previous releases.
+
+## Case-study_Mouse-intestinal-epithelium.ipynb
+
+| Package      | Version   |
+|--------------|-----------|
+|  Scanpy      |  >= 1.3.3 |
+| AnnData      | >= 0.6.11 |
+| Rpy2         | < 3.0.0   |
+| Pandas       | < 0.24.0  |
+| R            | 3.4.3     |
+| Bioconductor | 3.6       |
+
+
