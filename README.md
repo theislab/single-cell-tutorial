@@ -96,6 +96,11 @@ gunzip GSE_92332_RAW/*_Regional_*
 ```
 
 
+## Case study notes
+
+We have noticed that results such as visualization, dimensionality reduction, and clustering (and hence all downstream results as well) can give slightly different results on different systems. This has to do with the numerical libraries that are used in the backend. Thus, we cannot guarantee that a rerun of the notebook will generate exactly the same clusters. While all results are qualitatively similar, the assignment of cells to clusters especialy for stem cells, TA cells, and enterocyte progenitors can differ between runs across systems. To show the diversity that can be expected, we have uploaded shortened case study notebooks to the alternative_clustering_results folder.
+
+
 ## Adapting the pipeline for other datasets:
 
 The pipeline was designed to be easily adaptable to new datasets. However, there are several limitations to the general applicability of the current workflow. When adapting the pipeline for your own dataset please take into account the following:
