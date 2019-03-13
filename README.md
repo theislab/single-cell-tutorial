@@ -13,6 +13,7 @@ In case of questions or issues, please get in touch by posting an issue in this 
 
 To run the tutorial case study, several packages must be installed. As both `R` and `python` packages are required, we prefer using a conda environment. To facilitate the setup of a conda environment, we have provided the `sc_tutorial_environment.yml` file, which contains all conda and pip installable dependencies. R dependencies, which are not already available as conda packages, must be installed into the environment itself.
 
+
 To set up a conda environment, the following instructions must be followed.
 
 1. Set up the conda environment from the `sc_tutorial_environment.yml` file.
@@ -72,6 +73,21 @@ These steps should set up an environment to perform single cell analysis with th
 Also note that conda and pip doesn't always play nice together. Conda developers have suggested first installing all conda packages and then installing pip packages on top of this where conda packages are not available. Thus, installing further conda packages into the environment may cause issues. Instead, start a new environment and reinstall all conda packages first.
 
 If you prefer to set up an environment manually, a list of all package requirements are given at the end of this document.
+
+
+## Downloading the data
+
+As mentioned above the data for the case study comes from GSE92332. To run the case study as shown, you must download this data and place it in the correct folder. Unpacking the data requires `tar` and `gunzip`, which should already be available on most systems. From the location where you store the case study ipynb file, this can be done via the following commands:
+
+```
+mdkir data/
+mkdir data/Haber-et-al_mouse-intestinal-epithelium/
+cd data/Haber-et-al_mouse-intestinal-epithelium/
+wget ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE92nnn/GSE92332/suppl/GSE92332_RAW.tar
+mkdir GSE92332_RAW
+tar -C GSE92332_RAW -xvf GSE92332_RAW.tar
+gunzip GSE_92332_RAW/*_Regional_*
+```
 
 
 ## Adapting the pipeline for other datasets:
