@@ -1,8 +1,8 @@
-# Scripts for "Best-practices in single-cell RNA-seq: a tutorial"
+# Scripts for "Current best-practices in single-cell RNA-seq: a tutorial"
 
-This repository contains the scripts used to generate the figures in the manuscript M. D. Luecken and F. J. Theis., "Best practices in single-cell RNA-seq analysis: a tutorial", a case study which complements the manuscript (Also in Supplementary Note 4), and a marker gene study using simulated data from the splatter package.
+This repository contains the scripts used to generate the figures in the manuscript M. D. Luecken and F. J. Theis., "Current best practices in single-cell RNA-seq analysis: a tutorial", a case study which complements the manuscript, and a marker gene study using simulated data from the splatter package.
 
-The main part of this repository is a case study where the best-practices established in the manuscript are applied to a mouse intestinal epithelium regions dataset from Haber et al., Nature 551 (2018) available from the GEO under GSE92332.
+The main part of this repository is a case study where the best-practices established in the manuscript are applied to a mouse intestinal epithelium regions dataset from Haber et al., Nature 551 (2018) available from the GEO under GSE92332. This case study can be found in different versions in the `latest_notebook/` and `old_releases/` directories.
 
 The scripts in the plotting_scripts/ folder reproduce the figures that are shown in the manuscript and the supplementary materials. These scripts contain comments to explain each step. Each figure that does not have a corresponding script in the plotting_scripts/ folder was taken from the case study or the marker gene study.
 
