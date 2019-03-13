@@ -18,62 +18,67 @@ To set up a conda environment, the following instructions must be followed.
 
 1. Set up the conda environment from the `sc_tutorial_environment.yml` file.
 
- ```
- conda env create -f sc_tutorial_environment.yml
- ```
+    ```
+    conda env create -f sc_tutorial_environment.yml
+    ```
 
 2. Ensure that the environment can find the `gsl` libraries from R. This is done by setting the `CFLAGS` and `LDFLAGS` environment variables (see https://bit.ly/2CjJsgn). Here we set them so that they are correctly set every time the environment is activated.
- ```
- cd YOUR_CONDA_ENV_DIRECTORY
- mkdir -p ./etc/conda/activate.d
- mkdir -p ./etc/conda/deactivate.d
- touch ./etc/conda/activate.d/env_vars.sh
- touch ./etc/conda/deactivate.d/env_vars.sh
- ```
- Where YOUR_CONDA_ENV_DIRECTORY can be found by running `echo $CONDA_PREFIX` while in the environment.
 
- WHILE NOT IN THE ENVIRONMENT(!!!!) open the `env_vars.sh` file at `./etc/conda/activate.d/env_vars.sh` and enter the following into the file:
- ```
- #!/bin/sh
+    ```
+    cd YOUR_CONDA_ENV_DIRECTORY
+    mkdir -p ./etc/conda/activate.d
+    mkdir -p ./etc/conda/deactivate.d
+    touch ./etc/conda/activate.d/env_vars.sh
+    touch ./etc/conda/deactivate.d/env_vars.sh
+    ```
 
- CFLAGS_OLD=$CFLAGS
- export CFLAGS_OLD
- export CFLAGS="`gsl-config --cflags` ${CFLAGS_OLD}"
- 
- LDFLAGS_OLD=$LDFLAGS
- export LDFLAGS_OLD
- export LDFLAGS="`gsl-config --libs` ${LDFLAGS_OLD}"
- ```
+    Where YOUR_CONDA_ENV_DIRECTORY can be found by running `echo $CONDA_PREFIX` while in the environment.
 
- Also change the `./etc/conda/deactivate.d/env_vars.sh` file to:
- ```
- #!/bin/sh
- 
- CFLAGS=$CFLAGS_OLD
- export CFLAGS
- unset CFLAGS_OLD
- 
- LDFLAGS=$LDFLAGS_OLD
- export LDFLAGS
- unset LDFLAGS_OLD
- ```
- 
- Note again that these files should be written WHILE NOT IN THE ENVIRONMENT. Otherwise you may overwrite the CFLAGS and LDFLAGS environment variables in the base environment!
+    WHILE NOT IN THE ENVIRONMENT(!!!!) open the `env_vars.sh` file at `./etc/conda/activate.d/env_vars.sh` and enter the following into the file:
+
+    ```
+    #!/bin/sh
+    
+    CFLAGS_OLD=$CFLAGS
+    export CFLAGS_OLD
+    export CFLAGS="`gsl-config --cflags` ${CFLAGS_OLD}"
+     
+    LDFLAGS_OLD=$LDFLAGS
+    export LDFLAGS_OLD
+    export LDFLAGS="`gsl-config --libs` ${LDFLAGS_OLD}"
+    ```
+    
+    Also change the `./etc/conda/deactivate.d/env_vars.sh` file to:
+
+    ```
+    #!/bin/sh
+     
+    CFLAGS=$CFLAGS_OLD
+    export CFLAGS
+    unset CFLAGS_OLD
+     
+    LDFLAGS=$LDFLAGS_OLD
+    export LDFLAGS
+    unset LDFLAGS_OLD
+    ```
+    
+    Note again that these files should be written WHILE NOT IN THE ENVIRONMENT. Otherwise you may overwrite the CFLAGS and LDFLAGS environment variables in the base environment!
 
 3. Enter the environment by `conda activate sc-tutorial` or `conda activate ENV_NAME` if you changed the environment name in the `sc_tutorial_environment.yml` file.
 
 4. Open R and install the dependencies via the commands:
- ```
- install.packages(c('devtools', 'gam', 'RColorBrewer', 'BiocManager'))
- update.packages(ask=F)
- BiocManager::install(c("scran","MAST","monocle","ComplexHeatmap","slingshot"), version = "3.8")
- ```
+
+    ```
+    install.packages(c('devtools', 'gam', 'RColorBrewer', 'BiocManager'))
+    update.packages(ask=F)
+    BiocManager::install(c("scran","MAST","monocle","ComplexHeatmap","slingshot"), version = "3.8")
+    ```
  
- These steps should set up an environment to perform single cell analysis with the tutorial workflow on a Linux system. Please note that we have encountered issues with conda environments on Mac OS. When using Mac OS we recommend using the base conda environment and installing all packages as described in the `conda_env_instructions_for_mac.txt` file. In the base environment, R should be able to find the relevant gsl libraries, so `LDFLAGS` and `CFLAGS` should not need to be set.
+These steps should set up an environment to perform single cell analysis with the tutorial workflow on a Linux system. Please note that we have encountered issues with conda environments on Mac OS. When using Mac OS we recommend using the base conda environment and installing all packages as described in the `conda_env_instructions_for_mac.txt` file. In the base environment, R should be able to find the relevant gsl libraries, so `LDFLAGS` and `CFLAGS` should not need to be set.
 
- Also note that conda and pip doesn't always play nice together. Conda developers have suggested first installing all conda packages and then installing pip packages on top of this where conda packages are not available. Thus, installing further conda packages into the environment may cause issues. Instead, start a new environment and reinstall all conda packages first.
+Also note that conda and pip doesn't always play nice together. Conda developers have suggested first installing all conda packages and then installing pip packages on top of this where conda packages are not available. Thus, installing further conda packages into the environment may cause issues. Instead, start a new environment and reinstall all conda packages first.
 
- If you prefer to set up an environment manually, a list of all package requirements are given at the end of this document.
+If you prefer to set up an environment manually, a list of all package requirements are given at the end of this document.
 
 
 ## Downloading the data
