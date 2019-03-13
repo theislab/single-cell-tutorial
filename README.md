@@ -9,11 +9,83 @@ The scripts in the plotting_scripts/ folder reproduce the figures that are shown
 In case of questions or issues, please get in touch by posting an issue in this repository.
 
 
-## Case study
+## Environment set up
 
-To run the single cell tutorial from start to finish, several requirements must be met.
+To run the tutorial case study, several packages must be installed. As both `R` and `python` packages are required, we prefer using a conda environment. To facilitate the setup of a conda environment, we have provided the `sc_tutorial_environment.yml` file, which contains all conda and pip installable dependencies. R dependencies, which are not already available as conda packages, must be installed into the environment itself.
 
-### Requirements
+To set up a conda environment, the following instructions must be followed.
+
+1. Set up the conda environment from the `sc_tutorial_environment.yml` file.
+```
+conda env create -f sc_tutorial_environment.yml
+```
+
+2. Ensure that the environment can find the `gsl` libraries from R. This is done by setting the `CFLAGS` and `LDFLAGS` environment variables (see https://bit.ly/2CjJsgn). Here we set them so that they are correctly set every time the environment is activated.
+```
+cd YOUR_CONDA_ENV_DIRECTORY
+mkdir -p ./etc/conda/activate.d
+mkdir -p ./etc/conda/deactivate.d
+touch ./etc/conda/activate.d/env_vars.sh
+touch ./etc/conda/deactivate.d/env_vars.sh
+```
+Where YOUR_CONDA_ENV_DIRECTORY can be found by running `echo $CONDA_PREFIX` while in the environment.
+
+WHILE NOT IN THE ENVIRONMENT(!!!!) open the `env_vars.sh` file at `./etc/conda/activate.d/env_vars.sh` and enter the following into the file:
+```
+#!/bin/sh
+
+CFLAGS_OLD=$CFLAGS
+export CFLAGS_OLD
+export CFLAGS="`gsl-config --cflags` ${CFLAGS_OLD}"
+
+LDFLAGS_OLD=$LDFLAGS
+export LDFLAGS_OLD
+export LDFLAGS="`gsl-config --libs` ${LDFLAGS_OLD}"
+```
+
+Also change the `./etc/conda/deactivate.d/env_vars.sh` file to:
+```
+#!/bin/sh
+
+CFLAGS=$CFLAGS_OLD
+export CFLAGS
+unset CFLAGS_OLD
+
+LDFLAGS=$LDFLAGS_OLD
+export LDFLAGS
+unset LDFLAGS_OLD
+```
+
+Note again that these files should be writte WHILE NOT IN THE ENVIRONMENT. Otherwise you may overwrite the CFLAGS and LDFLAGS environment variables in the base environment!
+
+3. Enter the environment by `conda activate sc-tutorial` or `conda activate ENV_NAME` if you changed the environment name in the `sc_tutorial_environment.yml` file.
+
+4. Open R and install the dependencies via the commands:
+```
+install.packages(c('devtools', 'gam', 'RColorBrewer', 'BiocManager'))
+update.packages(ask=F)
+BiocManager::install(c("scran","MAST","monocle","ComplexHeatmap","slingshot"), version = "3.8")
+```
+
+These steps should set up an environment to perform single cell analysis with the tutorial workflow on a Linux system. Please note that we have encountered issues with conda environments on Mac OS. When using Mac OS we recommend using the base conda environment and installing all packages as described in the `conda_env_instructions_for_mac.txt` file. In the base environment, R should be able to find the relevant gsl libraries, so `LDFLAGS` and `CFLAGS` should not need to be set.
+
+Also note that conda and pip doesn't always play nice together. Conda developers have suggested first installing all conda packages and then installing pip packages on top of this where conda packages are not available. Thus, installing further conda packages into the environment may cause issues. Instead, start a new environment and reinstall all conda packages first.
+
+If you prefer to set up an environment manually, a list of all package requirements are given at the end of this document.
+
+
+## Adapting the pipeline for other datasets:
+
+The pipeline was designed to be easily adaptable to new datasets. However, there are several limitations to the general applicability of the current workflow. When adapting the pipeline for your own dataset please take into account the following:
+
+1. Sparse data formats are not supported by `rpy2` and therefore do not work with any of the integrated R commands. Datasets can be turned into a dense format using the code: `adata.X = adata.X.toarray()`
+
+2. The case study assumes that the input data is count data obtained from a single-cell protocol with UMIs. If the input data is read data, then the normalization method should be replaced with another method that includes gene length normalization (e.g., TPM, TMM).
+
+
+## Manual installation of package requirements
+
+The following packages are required to run the case study notebook.
 
 General:
 - Jupyter notebook
@@ -26,12 +98,13 @@ Python:
 - scanpy
 - numpy
 - scipy
-- pandas < 0.24.0
+- pandas
 - seaborn
 - louvain>=0.6
 - python-igraph
-- ComBat python implementation from Maren Buettner's github (mbuttner/maren_codes/combat.py)
 - python-gprofiler from Valentine Svensson's github (vals/python-gprofiler)
+- ComBat python implementation from Maren Buettner's github (mbuttner/maren_codes/combat.py)
+  - only needed for scanpy versions before 1.3.8 which don't include `sc.pp.combat()`
 
 R:
 - scater
@@ -41,27 +114,18 @@ R:
 - slingshot (change DESCRIPTION file for R version 3.4.3)
 - monocle 2
 - limma
-- splines
 - ComplexHeatmap
 - RColorBrewer
 - clusterExperiment
 - ggplot2
 
-#### Application notes:
+## Possible sources of error in the manual installation:
 
 For R 3.4.3:
 When using Slingshot in R 3.4.3, you must pull a local copy of slingshot via the github repository and change the `DESCRIPTION` file to say `R>=3.4.3` instead of `R>=3.5.0`.
 
-For R>=3.5 and bioconductor>= 3.7:
-The clusterExperiment version that comes for bioconductor 3.7 has slightly changed naming convention. `clusterExperiment()` is now called `ClusterExperiment()`. The script should be changed accordingly when using newer versions of R.
+For R >= 3.5 and bioconductor >= 3.7:
+The clusterExperiment version that comes for bioconductor 3.7 has slightly changed naming convention. `clusterExperiment()` is now called `ClusterExperiment()`. The latest version of the notebook includes this change, but when using the original notebook, please note that this may throw an error.
 
-For Pandas>=0.24.0:
-Pandas 0.24.0 is currently not compatible with rpy2 < 3.0.0. Once rpy2 3.0.0 is released, the tutorial should work with latest package updates. Please note that Pandas 0.24.0 requires anndata version 0.6.18 and a scanpy version > 1.37.0.
-
-### Adapting the pipeline for other datasets:
-
-The pipeline was designed to be easily adaptable to new datasets. However, there are several limitations to the general applicability of the current workflow. When adapting the pipeline for your own dataset please take into account the following:
-
-1.  sparse data formats are not supported by `rpy2` and therefore do not work with any of the integrated R commands. Datasets can be turned into a dense format using the code: `adata.X = adata.X.toarray()`
-
-2. The case study assumes that the input data is count data obtained from a single-cell protocol with UMIs. If the input data is read data, then the normalization method should be replaced with another method that includes gene length normalization (e.g., TPM, TMM).
+For rpy2 < 3.0.0
+Pandas 0.24.0 is currently not compatible with rpy2 < 3.0.0. When using old versions of rpy2, please downgrade pandas to 0.23.X. Please also note that Pandas 0.24.0 requires anndata version 0.6.18 and a scanpy version > 1.37.0.
