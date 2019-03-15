@@ -1,3 +1,5 @@
+# This script plots extended view figure 1.
+
 library(ggplot2)
 
 data <- read.table("../HVGs.csv", header=T, sep=';')
