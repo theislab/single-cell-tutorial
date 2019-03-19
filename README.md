@@ -95,6 +95,14 @@ tar -C GSE92332_RAW -xvf GSE92332_RAW.tar
 gunzip GSE_92332_RAW/*_Regional_*
 ```
 
+The annotated dataset with which we briefly compare the results at the end of the notebook, is available from the same GEO accession ID (GSE92332). It can be obtained using the following command:
+
+```
+cd data/Haber-et-al_mouse-intestinal-epithelium/
+wget ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE92nnn/GSE92332/suppl/GSE92332_Regional_UMIcounts.txt.gz
+gunzip GSE92332_Regional_UMIcounts.txt.gz
+```
+
 
 ## Case study notes
 
