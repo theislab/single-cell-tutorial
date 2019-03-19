@@ -83,9 +83,10 @@ If you prefer to set up an environment manually, a list of all package requireme
 
 ## Downloading the data
 
-As mentioned above the data for the case study comes from GSE92332. To run the case study as shown, you must download this data and place it in the correct folder. Unpacking the data requires `tar` and `gunzip`, which should already be available on most systems. From the location where you store the case study ipynb file, this can be done via the following commands:
+As mentioned above the data for the case study comes from GSE92332. To run the case study as shown, you must download this data and place it in the correct folder. Unpacking the data requires `tar` and `gunzip`, which should already be available on most systems. If you are cloning the github repository and have the case study script in a `latest_notebook/` folder, then from the location where you store the case study ipynb file, this can be done via the following commands:
 
 ```
+cd ../  #To get to the main github repo folder
 mdkir data/
 mkdir data/Haber-et-al_mouse-intestinal-epithelium/
 cd data/Haber-et-al_mouse-intestinal-epithelium/
@@ -106,7 +107,11 @@ gunzip GSE92332_Regional_UMIcounts.txt.gz
 
 ## Case study notes
 
-We have noticed that results such as visualization, dimensionality reduction, and clustering (and hence all downstream results as well) can give slightly different results on different systems. This has to do with the numerical libraries that are used in the backend. Thus, we cannot guarantee that a rerun of the notebook will generate exactly the same clusters. While all results are qualitatively similar, the assignment of cells to clusters especialy for stem cells, TA cells, and enterocyte progenitors can differ between runs across systems. To show the diversity that can be expected, we have uploaded shortened case study notebooks to the alternative_clustering_results folder.
+We have noticed that results such as visualization, dimensionality reduction, and clustering (and hence all downstream results as well) can give slightly different results on different systems. This has to do with the numerical libraries that are used in the backend. Thus, we cannot guarantee that a rerun of the notebook will generate exactly the same clusters.
+
+While all results are qualitatively similar, the assignment of cells to clusters especialy for stem cells, TA cells, and enterocyte progenitors can differ between runs across systems. To show the diversity that can be expected, we have uploaded shortened case study notebooks to the `alternative_clustering_results/` folder.
+
+Note that running `sc.pp.pca()` with the parameter `svd_solver='arpack'` drastically reduces the variability between systems, however the output is not exactly the same.
 
 
 ## Adapting the pipeline for other datasets:
