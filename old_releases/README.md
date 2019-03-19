@@ -6,7 +6,7 @@ Here we detail which versions of scanpy and other tools are required to run the 
 
 | Package      | Version   |
 |--------------|-----------|
-|  Scanpy      |  >= 1.3.3 |
+| Scanpy       |  >= 1.3.3 |
 | AnnData      | >= 0.6.11 |
 | Rpy2         | < 3.0.0   |
 | Pandas       | < 0.24.0  |
