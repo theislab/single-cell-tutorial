@@ -2,7 +2,8 @@
 
 Here we detail which versions of scanpy and other tools are required to run the latest notebook.
 
-### Case-study_Mouse-intestinal-epithelium_190322.ipynb
+
+### Case-study_Mouse-intestinal-epithelium_1904.ipynb
 
 | Package      | Version   |
 |--------------|-----------|
