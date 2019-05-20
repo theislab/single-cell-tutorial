@@ -1,8 +1,10 @@
 name: sc-tutorial
 channels:
  - conda-forge
+ - bioconda
 dependencies:
  - python==3.6
+ - cmake
  - r-essentials
  - r-rgl
  - pandas
@@ -27,6 +29,8 @@ dependencies:
  - statsmodels
  - python-igraph
  - louvain
+ - r-rngtools
+ - bioconductor-rhdf5lib
  - pip
  - pip:
    - MulticoreTSNE
