@@ -1,5 +1,8 @@
 # Scripts for "Current best-practices in single-cell RNA-seq: a tutorial"
 
+![Alt text](overview.jpg?raw=true "Workflow overview")
+
+
 This repository contains the scripts used to generate the figures in the manuscript M. D. Luecken and F. J. Theis., "Current best practices in single-cell RNA-seq analysis: a tutorial", a case study which complements the manuscript, and a marker gene study using simulated data from the splatter package.
 
 The main part of this repository is a case study where the best-practices established in the manuscript are applied to a mouse intestinal epithelium regions dataset from Haber et al., Nature 551 (2018) available from the GEO under GSE92332. This case study can be found in different versions in the `latest_notebook/` and `old_releases/` directories.
