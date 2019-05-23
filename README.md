@@ -4,9 +4,8 @@
 
 This repository is complementary to the publication:
 
-```
 M.D. Luecken and F.J. Theis, "Current best practices in single-cell RNA-seq analysis: a tutorial", Molecular Systems Biology (accepted)
-```
+
 
 The repository contains:
 - scripts to generate the paper figures
