@@ -2,13 +2,24 @@
 
 ![image](https://drive.google.com/uc?export=view&id=1YoX3F8gNGH5K0AFu4wFdd5ccEXT-mP_J)
 
-This repository contains the scripts used to generate the figures in the manuscript M. D. Luecken and F. J. Theis., "Current best practices in single-cell RNA-seq analysis: a tutorial", a case study which complements the manuscript, and a marker gene study using simulated data from the splatter package.
+This repository is complementary to the publication:
+
+```
+M.D. Luecken and F.J. Theis, "Current best practices in single-cell RNA-seq analysis: a tutorial", Molecular Systems Biology (accepted)
+```
+
+The repository contains:
+- scripts to generate the paper figures
+- a case study which complements the manuscript
+- the code for the marker gene detection study from the supplementary material
 
 The main part of this repository is a case study where the best-practices established in the manuscript are applied to a mouse intestinal epithelium regions dataset from Haber et al., Nature 551 (2018) available from the GEO under GSE92332. This case study can be found in different versions in the `latest_notebook/` and `old_releases/` directories.
 
 The scripts in the plotting_scripts/ folder reproduce the figures that are shown in the manuscript and the supplementary materials. These scripts contain comments to explain each step. Each figure that does not have a corresponding script in the plotting_scripts/ folder was taken from the case study or the marker gene study.
 
 In case of questions or issues, please get in touch by posting an issue in this repository.
+
+If the materials in this repo are of use to you, please consider citing the above publication.
 
 
 ## Environment set up
@@ -164,10 +175,13 @@ R:
 ## Possible sources of error in the manual installation:
 
 For R 3.4.3:
+
 When using Slingshot in R 3.4.3, you must pull a local copy of slingshot via the github repository and change the `DESCRIPTION` file to say `R>=3.4.3` instead of `R>=3.5.0`.
 
 For R >= 3.5 and bioconductor >= 3.7:
+
 The clusterExperiment version that comes for bioconductor 3.7 has slightly changed naming convention. `clusterExperiment()` is now called `ClusterExperiment()`. The latest version of the notebook includes this change, but when using the original notebook, please note that this may throw an error.
 
-For rpy2 < 3.0.0
-Pandas 0.24.0 is currently not compatible with rpy2 < 3.0.0. When using old versions of rpy2, please downgrade pandas to 0.23.X. Please also note that Pandas 0.24.0 requires anndata version 0.6.18 and a scanpy version > 1.37.0.
+For rpy2 < 3.0.0:
+
+Pandas 0.24.0 is not compatible with rpy2 < 3.0.0. When using old versions of rpy2, please downgrade pandas to 0.23.X. Please also note that Pandas 0.24.0 requires anndata version 0.6.18 and scanpy version > 1.37.0.
