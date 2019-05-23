@@ -1,7 +1,6 @@
 # Scripts for "Current best-practices in single-cell RNA-seq: a tutorial"
 
-![Alt text](overview.jpg?raw=true "Workflow overview")
-
+![image](https://drive.google.com/uc?export=view&id=1YoX3F8gNGH5K0AFu4wFdd5ccEXT-mP_J)
 
 This repository contains the scripts used to generate the figures in the manuscript M. D. Luecken and F. J. Theis., "Current best practices in single-cell RNA-seq analysis: a tutorial", a case study which complements the manuscript, and a marker gene study using simulated data from the splatter package.
 
