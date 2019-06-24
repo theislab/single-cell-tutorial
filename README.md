@@ -99,8 +99,7 @@ As mentioned above the data for the case study comes from GSE92332. To run the c
 
 ```
 cd ../  #To get to the main github repo folder
-mdkir data/
-mkdir data/Haber-et-al_mouse-intestinal-epithelium/
+mkdir -p data/Haber-et-al_mouse-intestinal-epithelium/
 cd data/Haber-et-al_mouse-intestinal-epithelium/
 wget ftp://ftp.ncbi.nlm.nih.gov/geo/series/GSE92nnn/GSE92332/suppl/GSE92332_RAW.tar
 mkdir GSE92332_RAW
