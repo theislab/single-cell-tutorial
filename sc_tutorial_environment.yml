@@ -36,7 +36,7 @@ dependencies:
    - MulticoreTSNE
    - anndata
    - fa2
-   - gprofiler
+   - gprofiler-official
    - scanpy
    - rpy2
    - git+https://github.com/flying-sheep/anndata2ri

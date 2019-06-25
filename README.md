@@ -4,7 +4,7 @@
 
 This repository is complementary to the publication:
 
-M.D. Luecken and F.J. Theis, "Current best practices in single-cell RNA-seq analysis: a tutorial", Molecular Systems Biology (accepted)
+M.D. Luecken, F.J. Theis, "Current best practices in single-cell RNA-seq analysis: a tutorial", Molecular Systems Biology 15(6) (2019): e8746
 
 
 The repository contains:
@@ -131,12 +131,12 @@ The pipeline was designed to be easily adaptable to new datasets. However, there
 
 1. Sparse data formats are not supported by `rpy2` and therefore do not work with any of the integrated R commands. Datasets can be turned into a dense format using the code: `adata.X = adata.X.toarray()`
 
-2. The case study assumes that the input data is count data obtained from a single-cell protocol with UMIs. If the input data is read data, then the normalization method should be replaced with another method that includes gene length normalization (e.g., TPM, TMM).
+2. The case study assumes that the input data is count data obtained from a single-cell protocol with UMIs. If the input data is full-length read data, then one could consider replacing the normalization method with another method that includes gene length normalization (e.g., TPM).
 
 
 ## Manual installation of package requirements
 
-The following packages are required to run the case study notebook.
+The following packages are required to run the first version of the case study notebook. For further versions see the README.md in the latest_notebook/ and old_releases/ folders.
 
 General:
 - Jupyter notebook
@@ -153,7 +153,9 @@ Python:
 - seaborn
 - louvain>=0.6
 - python-igraph
+- gprofiler-official (from Case study notebook 1906 version)
 - python-gprofiler from Valentine Svensson's github (vals/python-gprofiler)
+  - only needed for notebooks before version 1906
 - ComBat python implementation from Maren Buettner's github (mbuttner/maren_codes/combat.py)
   - only needed for scanpy versions before 1.3.8 which don't include `sc.pp.combat()`
 
@@ -172,14 +174,18 @@ R:
 
 ## Possible sources of error in the manual installation:
 
-For R 3.4.3:
+#### For R 3.4.3:
 
 When using Slingshot in R 3.4.3, you must pull a local copy of slingshot via the github repository and change the `DESCRIPTION` file to say `R>=3.4.3` instead of `R>=3.5.0`.
 
-For R >= 3.5 and bioconductor >= 3.7:
+#### For R >= 3.5 and bioconductor >= 3.7:
 
 The clusterExperiment version that comes for bioconductor 3.7 has slightly changed naming convention. `clusterExperiment()` is now called `ClusterExperiment()`. The latest version of the notebook includes this change, but when using the original notebook, please note that this may throw an error.
 
-For rpy2 < 3.0.0:
+#### For rpy2 < 3.0.0:
 
 Pandas 0.24.0 is not compatible with rpy2 < 3.0.0. When using old versions of rpy2, please downgrade pandas to 0.23.X. Please also note that Pandas 0.24.0 requires anndata version 0.6.18 and scanpy version > 1.37.0.
+
+#### For enrichment analysis with g:profiler:
+
+Ensure that the correct g:profiler package is used for the notebook. Notebooks until 1904 use `python-gprofiler` from valentine svensson's github, and Notebooks from 1906 use the `gprofiler-official` package from the g:profiler team.

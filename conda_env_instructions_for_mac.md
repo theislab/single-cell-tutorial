@@ -9,7 +9,7 @@
     conda install -c conda-forge python-igraph louvain
     
     pip install --upgrade pip
-    pip install MulticoreTSNE anndata fa2 gprofiler scanpy rpy2
+    pip install MulticoreTSNE anndata fa2 gprofiler-official scanpy rpy2
     pip install git+https://github.com/flying-sheep/anndata2ri
 
 
