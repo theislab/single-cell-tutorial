@@ -6,6 +6,10 @@ This repository is complementary to the publication:
 
 M.D. Luecken, F.J. Theis, "Current best practices in single-cell RNA-seq analysis: a tutorial", Molecular Systems Biology 15(6) (2019): e8746
 
+The paper was recommended on F1000 prime as being of special significance in the field.
+
+<a href="https://f1000.com/prime/736010853?bd=1 &ui=150648 " target="_blank"><img src="https://s3.us-east-1.amazonaws.com/cdn.f1000.com/images/badges/badgef1000.gif" alt="Access the recommendation on F1000Prime" id="bg" /></a>
+
 
 The repository contains:
 - scripts to generate the paper figures
