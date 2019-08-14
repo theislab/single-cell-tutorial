@@ -48,7 +48,7 @@ To set up a conda environment, the following instructions must be followed.
     touch ./etc/conda/deactivate.d/env_vars.sh
     ```
 
-    Where YOUR_CONDA_ENV_DIRECTORY can be found by running `echo $CONDA_PREFIX` while in the environment.
+    Where YOUR_CONDA_ENV_DIRECTORY can be found by running `conda info --envs` and using the directory that corresponds to your conda environment name (default: sc-tutorail).
 
     WHILE NOT IN THE ENVIRONMENT(!!!!) open the `env_vars.sh` file at `./etc/conda/activate.d/env_vars.sh` and enter the following into the file:
 
