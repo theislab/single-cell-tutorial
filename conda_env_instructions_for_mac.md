@@ -1,6 +1,5 @@
 # 1. Install miniconda or anaconda with python version 3.6 or above.
 
-
 # 2. Run the following commands for conda and pip
 
     conda update --all
@@ -9,12 +8,11 @@
     conda install -c conda-forge python-igraph louvain
     
     pip install --upgrade pip
-    pip install MulticoreTSNE anndata fa2 gprofiler-official scanpy rpy2
-    pip install git+https://github.com/flying-sheep/anndata2ri
+    pip install MulticoreTSNE anndata anndata2ri fa2 gprofiler-official scanpy rpy2
 
+`MulticoreTSNE` is optional and just for speed, so leave it out if you run into problems installing it.
 
 # 3. Start R and run the following commands:
-
 
     install.packages(c('devtools', 'gam', 'RColorBrewer', 'BiocManager'))
     update.packages(ask=F)
