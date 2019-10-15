@@ -90,7 +90,7 @@ To set up a conda environment, the following instructions must be followed.
     BiocManager::install(c("scran","MAST","monocle","ComplexHeatmap","slingshot"), version = "3.8")
     ```
  
-These steps should set up an environment to perform single cell analysis with the tutorial workflow on a Linux system. Please note that we have encountered issues with conda environments on Mac OS. When using Mac OS we recommend using the base conda environment and installing all packages as described in the `conda_env_instructions_for_mac.txt` file. In the base environment, R should be able to find the relevant gsl libraries, so `LDFLAGS` and `CFLAGS` should not need to be set.
+These steps should set up an environment to perform single cell analysis with the tutorial workflow on a Linux system. Please note that we have encountered issues with conda environments on Mac OS. When using Mac OS we recommend installing the packages without conda using separately installed `python` and `R` versions. Alternatively, you can try using the base conda environment and installing all packages as described in the `conda_env_instructions_for_mac.txt` file. In the base environment, R should be able to find the relevant gsl libraries, so `LDFLAGS` and `CFLAGS` should not need to be set.
 
 Also note that conda and pip doesn't always play nice together. Conda developers have suggested first installing all conda packages and then installing pip packages on top of this where conda packages are not available. Thus, installing further conda packages into the environment may cause issues. Instead, start a new environment and reinstall all conda packages first.
 
