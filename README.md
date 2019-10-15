@@ -175,6 +175,7 @@ R:
 - RColorBrewer
 - clusterExperiment
 - ggplot2
+- IRkernel
 
 ## Possible sources of error in the manual installation:
 
@@ -193,3 +194,7 @@ Pandas 0.24.0 is not compatible with rpy2 < 3.0.0. When using old versions of rp
 #### For enrichment analysis with g:profiler:
 
 Ensure that the correct g:profiler package is used for the notebook. Notebooks until 1904 use `python-gprofiler` from valentine svensson's github, and Notebooks from 1906 use the `gprofiler-official` package from the g:profiler team.
+
+#### If not R packages can be found:
+
+Ensure that IRkernel has linked the correct version of R with your jupyter notebook. Check instructions at `https://github.com/IRkernel/IRkernel`.
