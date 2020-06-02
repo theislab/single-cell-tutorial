@@ -27,7 +27,7 @@ If the materials in this repo are of use to you, please consider citing the abov
 
 ## Environment set up
 
-A docker container with a working sc-tutorial environment is now available [here](https://hub.docker.com/r/leanderd/single-cell-analysis) thanks to Leander Dony (@le-ander). If you would like to set up the environment via conda or manually outside of the docker container, please follow the instructions below.
+A docker container with a working sc-tutorial environment is now available [here](https://hub.docker.com/r/leanderd/single-cell-analysis) thanks to [Leander Dony](https://github.com/le-ander). If you would like to set up the environment via conda or manually outside of the docker container, please follow the instructions below.
 
 To run the tutorial case study, several packages must be installed. As both `R` and `python` packages are required, we prefer using a conda environment. To facilitate the setup of a conda environment, we have provided the `sc_tutorial_environment.yml` file, which contains all conda and pip installable dependencies. R dependencies, which are not already available as conda packages, must be installed into the environment itself.
 
