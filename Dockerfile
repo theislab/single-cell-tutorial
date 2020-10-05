@@ -50,9 +50,8 @@ RUN ln -s /opt/python/bin/python3 /opt/python/bin/python
 RUN ln -s /opt/python/bin/pip3 /opt/python/bin/pip
 ENV PATH="/opt/python/bin:${PATH}"
 
-COPY python-packages.txt /opt/python/python-packages.txt
 RUN pip install --no-cache-dir -U pip wheel setuptools cmake
-RUN pip install --no-cache-dir -r /opt/python/python-packages.txt
+RUN pip install --no-cache-dir -U scanpy[louvain] jupyterlab cellxgene rpy2 anndata2ri leidenalg fa2 MulticoreTSNE scvelo diffxpy tables==3.5.1 ipywidgets jupyter_contrib_nbextensions gprofiler-official scrublet xlsxwriter xlrd tensorflow tensorflow-probability
 RUN pip install --no-cache-dir git+https://github.com/le-ander/epiScanpy.git
 RUN jupyter contrib nbextension install --system
 RUN jupyter nbextension enable --py widgetsnbextension
