@@ -1,0 +1,20 @@
+
+# Manually added .bashrc
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+export USER=root
+export LOGNAME=root
+export HOME=/root
+export PATH=/root/.local/bin:/root/bin:/opt/python/bin:/opt/R/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export LD_LIBRARY_PATH=/opt/R/lib/R/lib
+export SHELL=/bin/bash
+export TERM=xterm-256color
+export LANG=en_US.UTF-8
+
+alias ll='ls -lha --color=auto'
+alias jn='jupyter-notebook --no-browser --ip=0.0.0.0 --allow-root /root/host_home'
+alias jl='jupyter-lab --no-browser --ip=0.0.0.0 --allow-root /root/host_home'
+alias cx='cellxgene launch --host 0.0.0.0 --port 8888'
