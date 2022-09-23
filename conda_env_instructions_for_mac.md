@@ -24,12 +24,14 @@ The version of the `BiocManager` may depend on the installed R version (here `R>
 # Troubleshooting
 
 ## MulticoreTSNE
-A current workaround (as of 23/09/2022) to install `MulticoreTSNE` is to clone the `git` repository, adjust the `setup.py` and install manually as follows (solution provided by [Lisa Barros](https://github.com/lisa-sousa):
+A current workaround (as of 23/09/2022) to install `MulticoreTSNE` is to clone the `git` repository, adjust the `setup.py` and install manually as follows (solution provided by [Lisa Barros](https://github.com/lisa-sousa)):
 
 ```
 git clone https://github.com/DmitryUlyanov/Multicore-TSNE.git
 ```
-Then open the `setup.py` and replace `self.cmake_args or "--",` by `self.cmake_args or "",`. Install via
+Then open the `setup.py` and replace `self.cmake_args or "--",` by `self.cmake_args or "",`. 
+
+Then install via
 ```
 python setup.py install
 ```
