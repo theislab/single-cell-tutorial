@@ -5,7 +5,7 @@
     conda update --all
     conda install r-essentials r-rgl
     conda install pandas numpy scipy scikit-learn jupyter gsl tzlocal simplegeneric natsort h5py tqdm patsy llvmlite numba networkx joblib numexpr pytables seaborn statsmodels pip
-    conda install -c conda-forge python-igraph louvain leiden
+    conda install -c conda-forge python-igraph louvain leidenalg
     
     pip install --upgrade pip
     pip install MulticoreTSNE anndata anndata2ri fa2 gprofiler-official scanpy rpy2 scrublet
