@@ -3,6 +3,7 @@
 > **Warning**
 > The here presented case study does not necessarily follow the most recent best practices anymore.
 > We therefore refer interested readers to our consistently updated online book: https://www.sc-best-practices.org.
+>
 > For more information and contribution guidelines please visit the associated Github repository: https://github.com/theislab/single-cell-best-practices
 
 
