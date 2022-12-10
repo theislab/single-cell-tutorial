@@ -1,10 +1,10 @@
 # Scripts for "Current best-practices in single-cell RNA-seq: a tutorial"
 
-> **Warning**
-> The here presented case study does not necessarily follow the most recent best practices anymore.
-> We therefore refer interested readers to our consistently updated online book: https://www.sc-best-practices.org.
+> **Note**
+> The "current" best practices that are detailed in this workflow were set up in 2019. Thus, they do not necessarily follow the latest best practices for scRNA-seq analysis anymore.
+> For an up-to-date version of the latest best practices for single-cell RNA-seq analysis (and more modalities) please see our consistently updated online book: https://www.sc-best-practices.org.
+>
 > For more information and contribution guidelines please visit the associated Github repository: https://github.com/theislab/single-cell-best-practices
-
 
 ![image](https://drive.google.com/uc?export=view&id=1YoX3F8gNGH5K0AFu4wFdd5ccEXT-mP_J)
 
