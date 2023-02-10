@@ -95,7 +95,7 @@ To set up a conda environment, the following instructions must be followed.
     ```
     install.packages(c('devtools', 'gam', 'RColorBrewer', 'BiocManager'))
     update.packages(ask=F)
-    BiocManager::install(c("scran","MAST","monocle","ComplexHeatmap","slingshot"), version = "3.8")
+    BiocManager::install(c("scran","MAST","monocle","ComplexHeatmap","slingshot", "DropletUtils"), version = "3.15")
     ```
  
 These steps should set up an environment to perform single cell analysis with the tutorial workflow on a Linux system. Please note that we have encountered issues with conda environments on Mac OS. When using Mac OS we recommend installing the packages without conda using separately installed `python` and `R` versions. Alternatively, you can try using the base conda environment and installing all packages as described in the `conda_env_instructions_for_mac.txt` file. In the base environment, R should be able to find the relevant gsl libraries, so `LDFLAGS` and `CFLAGS` should not need to be set.
@@ -154,7 +154,7 @@ General:
 - Jupyter notebook
 - IRKernel
 - rpy2
-- R >= 3.4.3
+- R >= 4.0
 - Python >= 3.5
 
 Python:
